@@ -22,10 +22,13 @@ function shuffleImages() {
 
 function createTiles() {
   const container = document.getElementById("image-container");
+	container.innerHTML = ""; 
   const shuffled = shuffleImages();
-  shuffled.forEach((src, index) => {
+  shuffled.forEach((src) => {
     const img = document.createElement("img");
     img.src = `./images/${src}`;
+	      const className = src.split(".")[0];
+	  img.classList.add(className);   
     img.classList.add("tile");
     img.dataset.src = src;
 
